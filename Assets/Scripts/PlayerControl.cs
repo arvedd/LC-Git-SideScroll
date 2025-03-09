@@ -10,6 +10,7 @@ public class PlayerControl : MonoBehaviour
     public InputAction playerMove;
     public float runSpeed = 7f;
     public bool facingRight = true;
+    public float jumpImpulse = 4f;
 
     private void OnEnable()
     {
@@ -43,11 +44,21 @@ public class PlayerControl : MonoBehaviour
         }else {
             animator.SetBool("IsMoving", false);
         }
+
+        if(moveInput.y > 0) {
+            Jump();
+            animator.SetBool("Jump", true);
+
+        }else {
+            animator.SetBool("Jump", false);
+        }
     }
 
     void FixedUpdate() {
 
         rb2d.linearVelocity = new Vector2(moveInput.x * runSpeed, rb2d.linearVelocity.y);
+        
+        animator.SetFloat("yVelocity", rb2d.linearVelocity.y);
 
         if(moveInput.x > 0 && !facingRight) {
             FlipSprite();
@@ -56,6 +67,11 @@ public class PlayerControl : MonoBehaviour
             FlipSprite();
 
         } 
+    }
+
+    void Jump() {
+        rb2d.linearVelocity = new Vector2(moveInput.x, jumpImpulse);
+
     }
 
     void FlipSprite() {
