@@ -1,65 +1,46 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Rigidbody2D))] // memastikan objek game sudah punya komponen Rigidbody2D kalo ga kaga bisa dipake scriptnya
+[RequireComponent(typeof(Rigidbody2D), typeof(TouchObject))]
 public class PlayerControl : MonoBehaviour
 {
     Vector2 moveInput;
+    TouchObject touchObject;
     Rigidbody2D rb2d;
     Animator animator;
-    public InputAction playerMove;
-    public float runSpeed = 7f;
+    public float moveSpeed = 7f;
     public bool facingRight = true;
-    public float jumpImpulse = 4f;
+    public float jumpImpulse = 5f;
 
-    private void OnEnable()
-    {
-        playerMove.Enable();
-    }
+    [SerializeField]
+    private bool _isMoving = false;
 
-    private void OnDisable()
-    {
-        playerMove.Disable();
-    }
+    public bool IsMoving {get {
+        return _isMoving;
+
+    } private set {
+        _isMoving = value;
+        animator.SetBool("IsMoving", value);
+
+    }}
+
+    public bool CanMove { get {
+        return animator.GetBool("canMove");
+
+    }}
 
     void Awake() {
 
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        touchObject = GetComponent<TouchObject>();
 
-    }
-
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        moveInput = playerMove.ReadValue<Vector2>();
-        
-        if(moveInput.x != 0) {
-            animator.SetBool("IsMoving", true);
-
-        }else {
-            animator.SetBool("IsMoving", false);
-        }
-
-        if(moveInput.y > 0) {
-            Jump();
-            animator.SetBool("Jump", true);
-
-        }else {
-            animator.SetBool("Jump", false);
-        }
     }
 
     void FixedUpdate() {
 
-        rb2d.linearVelocity = new Vector2(moveInput.x * runSpeed, rb2d.linearVelocity.y);
+        rb2d.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb2d.linearVelocity.y);
         
-        animator.SetFloat("yVelocity", rb2d.linearVelocity.y);
-
         if(moveInput.x > 0 && !facingRight) {
             FlipSprite();
 
@@ -69,9 +50,28 @@ public class PlayerControl : MonoBehaviour
         } 
     }
 
-    void Jump() {
-        rb2d.linearVelocity = new Vector2(moveInput.x, jumpImpulse);
+    public void OnMove(InputAction.CallbackContext context) {
+          moveInput = context.ReadValue<Vector2>();
 
+          IsMoving = moveInput != Vector2.zero;
+        
+    }
+
+    public void OnJump(InputAction.CallbackContext context) {
+        
+        if(context.started && touchObject.IsGround && CanMove) {
+            animator.SetTrigger("Jump");
+            rb2d.linearVelocity = new Vector2(moveInput.x, jumpImpulse);
+
+        }
+    }
+
+    public void OnAttack(InputAction.CallbackContext context) {
+        
+       if(context.started) { 
+            animator.SetTrigger("attack");
+    
+       }
     }
 
     void FlipSprite() {
