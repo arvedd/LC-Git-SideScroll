@@ -12,6 +12,21 @@ public class PlayerControl : MonoBehaviour
     public bool facingRight = true;
     public float jumpImpulse = 5f;
 
+
+    public float CurrentMove {
+
+        get {
+            if(IsMoving && !touchObject.IsOnWall) {
+                return moveSpeed;
+
+            } else {
+                
+                return 0;
+            }
+        }
+    }
+
+
     [SerializeField]
     private bool _isMoving = false;
 

@@ -2,12 +2,16 @@ using UnityEngine;
 
 public class Knight : MonoBehaviour
 {
-
-    public float walkSpeed = 3f;
     Rigidbody2D rb2d;
+    TouchObject touchObject;
+    Animator animator;
+    public DetectionZone attackZone;
+    public float walkSpeed = 3f;
+    public float walkStopRate = 0.02f;
+    public bool facingRight = true;
     public enum WalkableDirection {Right, Left}
     private WalkableDirection _walkDirection;
-    private Vector2 WalkDirectionVector;
+    private Vector2 WalkDirectionVector = Vector2.right;
 
     public WalkableDirection WalkDirection {
 
@@ -27,26 +31,62 @@ public class Knight : MonoBehaviour
             _walkDirection = value; }
     }
 
+    public bool _hasTarget = false;
+
+    public bool HasTarget { 
+        get { 
+            return _hasTarget; 
+
+        } private set {
+            _hasTarget = value;
+            animator.SetBool("HasTarget", value);
+        } 
+    }
+
+    public bool CanMove {
+        get {
+            return animator.GetBool("canMove");
+        }
+    }
 
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        touchObject = GetComponent<TouchObject>();
+        animator = GetComponent<Animator>();
+    }
+
+    void Update()
+    {
+        HasTarget = attackZone.detectColliders.Count > 0;
     }
 
     void FixedUpdate()
     {
-        rb2d.linearVelocity = new Vector2(walkSpeed * Vector2.right.x, rb2d.linearVelocity.y);
+        if(touchObject.IsGround && touchObject.IsOnWall) {
+
+            FlipSprite();
+
+        }
+
+        if(CanMove) {
+            rb2d.linearVelocity = new Vector2(walkSpeed * WalkDirectionVector.x, rb2d.linearVelocity.y);
+
+        }else {
+            rb2d.linearVelocity = new Vector2(Mathf.Lerp(rb2d.linearVelocity.x, 0, walkStopRate), rb2d.linearVelocity.y);
+        }
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    private void FlipSprite() {
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if(WalkDirection == WalkableDirection.Right) {
+
+            WalkDirection = WalkableDirection.Left;
+
+        } else if(WalkDirection == WalkableDirection.Left) {
+
+            WalkDirection = WalkableDirection.Right;
+        }
+    
     }
 }
