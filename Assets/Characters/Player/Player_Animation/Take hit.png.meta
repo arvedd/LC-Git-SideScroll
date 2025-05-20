@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 27bd33b59936e194a8b97eae546341f5
+guid: b16500eaa69bfbd40bf357c736159417
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -122,10 +122,10 @@ TextureImporter:
       name: Take hit_0
       rect:
         serializedVersion: 2
-        x: 65
-        y: 60
-        width: 35
-        height: 43
+        x: 0
+        y: 0
+        width: 162
+        height: 162
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,10 +144,10 @@ TextureImporter:
       name: Take hit_1
       rect:
         serializedVersion: 2
-        x: 225
-        y: 60
-        width: 38
-        height: 43
+        x: 162
+        y: 0
+        width: 162
+        height: 162
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,10 +166,10 @@ TextureImporter:
       name: Take hit_2
       rect:
         serializedVersion: 2
-        x: 383
-        y: 60
-        width: 45
-        height: 43
+        x: 324
+        y: 0
+        width: 162
+        height: 162
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

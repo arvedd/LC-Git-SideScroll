@@ -5,9 +5,10 @@ public class Knight : MonoBehaviour
     Rigidbody2D rb2d;
     TouchObject touchObject;
     Animator animator;
+    Damageable damageable;
     public DetectionZone attackZone;
     public float walkSpeed = 3f;
-    public float walkStopRate = 0.02f;
+    public float walkStopRate = 0.05f;
     public bool facingRight = true;
     public enum WalkableDirection {Right, Left}
     private WalkableDirection _walkDirection;
@@ -54,6 +55,7 @@ public class Knight : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         touchObject = GetComponent<TouchObject>();
         animator = GetComponent<Animator>();
+        damageable = GetComponent<Damageable>();
     }
 
     void Update()
@@ -69,12 +71,15 @@ public class Knight : MonoBehaviour
 
         }
 
-        if(CanMove) {
-            rb2d.linearVelocity = new Vector2(walkSpeed * WalkDirectionVector.x, rb2d.linearVelocity.y);
+        if(!damageable.LockVelocity) {
+            if(CanMove) {
+                rb2d.linearVelocity = new Vector2(walkSpeed * WalkDirectionVector.x, rb2d.linearVelocity.y);
 
-        }else {
-            rb2d.linearVelocity = new Vector2(Mathf.Lerp(rb2d.linearVelocity.x, 0, walkStopRate), rb2d.linearVelocity.y);
+            }else {
+                rb2d.linearVelocity = new Vector2(Mathf.Lerp(rb2d.linearVelocity.x, 0, walkStopRate), rb2d.linearVelocity.y);
+            }
         }
+        
     }
 
     private void FlipSprite() {
@@ -88,5 +93,10 @@ public class Knight : MonoBehaviour
             WalkDirection = WalkableDirection.Right;
         }
     
+    }
+
+    public void OnHit(int damage, Vector2 knockback) {
+
+        rb2d.linearVelocity = new Vector2(knockback.x, rb2d.linearVelocity.y + knockback.y);
     }
 }
