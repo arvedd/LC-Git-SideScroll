@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Ground
+  - Checkpoint
+  - Turn
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - Enemy
   - PlayerHitBox
   - EnemyHitBox
-  - 
+  - PickUp
   - 
   - 
   - 
