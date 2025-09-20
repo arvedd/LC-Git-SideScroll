@@ -2,8 +2,19 @@
 
 Knight's Trial is a 2D side-scrolling action game where you play as a valiant knight battling endless waves of enemies. The game doesn’t end until you fall — every fight is a test of endurance. Defeat as many foes as you can, rack up your score, and push yourself to survive longer with each run.
 
-
 ---
+
+## Play Game
+The game was built using Unity Engine. Play the game from -. 
+<br>
+
+## Developer
+Ngakan Nyoman Arya Vedantha (Game Programmer)
+<br>
+
+## Built Time
+The game was built for 7 days.
+<br>
 
 ## Features & Scripts 
 
@@ -37,6 +48,17 @@ Knight's Trial is a 2D side-scrolling action game where you play as a valiant kn
 
 ---
 
+## Game controls
+
+The following controls are bound in-game, for gameplay and testing.
+
+| Key Binding       | Function          |
+| ----------------- | ----------------- |
+| A,D           | Player 1 movement |
+| Jump           | Spacebar |
+| Left Mouse Button        | Attack |
+
+<br>
 
 ## Project Goal
 
