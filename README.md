@@ -54,7 +54,7 @@ The following controls are bound in-game, for gameplay and testing.
 
 | Key Binding       | Function          |
 | ----------------- | ----------------- |
-| A,D           | Player 1 movement |
+| A,D           | Player movement |
 | Jump           | Spacebar |
 | Left Mouse Button        | Attack |
 
