@@ -46,8 +46,13 @@ The game was built for 7 days.
   </tr>
   <tr>
     <td><b>Enemy</b></td>
-    <td>Manage enemy behaviour.</td>
-    <td><code>Knight.cs</code></td>
+    <td>Manage enemy behaviour and spawning enemy.</td>
+    <td><code>Knight.cs</code>, <code>EnemySpawner.cs</code></td>
+  </tr>
+  <tr>
+    <td><b>Manager</b></td>
+    <td>Manage the player score when destroying enemy, displaying damage for both player and enemy.</td>
+    <td><code>GameManager.cs</code>, <code>UIManager.cs</code></td>
   </tr>
 </table>
 
