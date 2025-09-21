@@ -31,13 +31,18 @@ The game was built for 7 days.
   </tr>
   <tr>
     <td><b>UI</b></td>
-    <td>Handling backgorund for game such as parallax, damage UI, score UI, item drop UI, </td>
+    <td>Handling user interface for game such as parallax, health text, item drop UI, </td>
     <td><code>HealthText.cs</code>, <code>HealthPickUp.cs</code>, <code>ParallaxEffect.cs</code></td>
   </tr>
   <tr>
-    <td><b>Health and coin System</b></td>
-    <td>Manage health and coin for player, when player get hit and destroy enemy.</td>
-    <td><code>MyContainItems.cs</code></td>
+    <td><b>Drop Item</b></td>
+    <td>Manage healing item when player destroy an enemy.</td>
+    <td><code>LootItem.cs</code></td>
+  </tr>
+  <tr>
+    <td><b>Music</b></td>
+    <td>Manage the music for the game.</td>
+    <td><code>MusicPlayer.cs</code></td>
   </tr>
   <tr>
     <td><b>Enemy</b></td>
