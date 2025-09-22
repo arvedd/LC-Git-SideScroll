@@ -58,6 +58,22 @@ The game was built for 7 days.
 
 ---
 
+## Files description
+
+```
+├── KnightTrial                       # Contain everything needed for KnightTrial to works.
+   ├── Assets                         # Contains every assets that have been worked with unity to create the game like the scripts and the art.
+      ├── Sprites                     # Contains all the game art like the sprites, background, even the character.
+      ├── Prefabs                     # Contains every reusable object that have been used in the game.
+      ├── Sounds                      # Contains every sound used for the game like music and sound effects.
+      ├── Scripts                     # Contains all scripts needed to make the gane get goings like PlayerMovement scripts.
+      ├── UI                          # Contains every UI that is used in the game such as fonts and texts.
+          ├── Fonts                   # Contains all the fonts that have been used in the game.
+          ├── Text                    # Contains all the prefab text that have been used in the game such as damage text, health text.
+  
+```
+<br>
+
 ## Game controls
 
 The following controls are bound in-game, for gameplay and testing.
