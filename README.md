@@ -4,10 +4,6 @@ Knight's Trial is a 2D side-scrolling action game where you play as a valiant kn
 
 ---
 
-## Play Game
-The game was built using Unity Engine. Play the game from -. 
-<br>
-
 ## Developer
 Ngakan Nyoman Arya Vedantha (Game Programmer)
 <br>
