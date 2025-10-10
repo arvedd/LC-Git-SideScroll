@@ -9,7 +9,7 @@ Ngakan Nyoman Arya Vedantha (Game Programmer)
 <br>
 
 ## Built Time
-The game was built for 7 days.
+The game was built for 14 days.
 <br>
 
 ## Features & Scripts 
