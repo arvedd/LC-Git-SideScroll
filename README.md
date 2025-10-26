@@ -1,5 +1,16 @@
 # Knight's Trial
 
+<table>
+  <tr>
+    <td align="left" width="100%">
+      <img width="100%" alt="gif1" src="https://media.giphy.com/media/C08nPkJMWxpUal1Aq6/giphy.gif">
+    </td>
+    <!-- <td align="right" width="50%">
+      <img width="100%" alt="gif2" src="https://github.com/user-attachments/assets/f96b78ce-3f23-4b2e-a17f-c7c1581d5cf5">
+    </td> -->
+  </tr>
+</table>
+
 Knight's Trial is a 2D side-scrolling action game where you play as a valiant knight battling endless waves of enemies. The game doesn’t end until you fall — every fight is a test of endurance. Defeat as many foes as you can, rack up your score, and push yourself to survive longer with each run.
 
 ---
@@ -16,39 +27,32 @@ The game was built for 14 days.
 
 <table>
   <tr>
-    <th>Feature</th>
-    <th>Description</th>
     <th>Main Scripts</th>
+    <th>Description</th>
   </tr>
   <tr>
-    <td><b>Player System</b></td>
-    <td>Handling attack, movement (walk, jump) for the player, damaging.</td>
     <td><code>Attack.cs</code>, <code>PlayerControl.cs</code>, <code>Damageable.cs</code></td>
+    <td>Handling attack, movement (walk, jump) for the player, damaging.</td>
   </tr>
   <tr>
-    <td><b>UI</b></td>
-    <td>Handling user interface for game such as parallax, health text, item drop UI, </td>
     <td><code>HealthText.cs</code>, <code>HealthPickUp.cs</code>, <code>ParallaxEffect.cs</code></td>
+    <td>Handling user interface for game such as parallax, health text, item drop UI, </td>
   </tr>
   <tr>
-    <td><b>Drop Item</b></td>
-    <td>Manage healing item when player destroy an enemy.</td>
     <td><code>LootItem.cs</code></td>
+    <td>Manage healing item when player destroy an enemy.</td>
   </tr>
   <tr>
-    <td><b>Music</b></td>
-    <td>Manage the music for the game.</td>
     <td><code>MusicPlayer.cs</code></td>
+    <td>Manage the music for the game.</td>
   </tr>
   <tr>
-    <td><b>Enemy</b></td>
-    <td>Manage enemy behaviour and spawning enemy.</td>
     <td><code>Knight.cs</code>, <code>EnemySpawner.cs</code></td>
+    <td>Manage enemy behaviour and spawning enemy.</td>
   </tr>
   <tr>
-    <td><b>Manager</b></td>
-    <td>Manage the player score when destroying enemy, displaying damage for both player and enemy.</td>
     <td><code>GameManager.cs</code>, <code>UIManager.cs</code></td>
+    <td>Manage the player score when destroying enemy, displaying damage for both player and enemy.</td>
   </tr>
 </table>
 
